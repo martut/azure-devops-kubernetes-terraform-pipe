@@ -22,3 +22,10 @@ steps:
     backendServiceAWS: 'aws-for-terraform'
     backendAWSBucketName: 'application-name-backend-state-martut'
     backendAWSKey: 'kubernetes-dev.tfstate'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'aws'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/aws/kubernetes'
+    environmentServiceNameAWS: 'aws-for-terraform'
